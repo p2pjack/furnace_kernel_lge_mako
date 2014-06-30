@@ -98,7 +98,7 @@ fi
 
 echo "Making ramdisk..."
 if [ -d $ramdisk ]; then
-	mkbootfs $ramdisk | gzip > out/ramdisk.gz
+	mkbootfs $ramdisk | lz4demo -c stdin out/ramdisk.lz4
 else
 	echo "No ramdisk found..."
 	exit 0;
@@ -106,7 +106,7 @@ fi
 
 echo "Making boot.img..."
 if [ -f out/"$kerneltype" ]; then
-	mkbootimg --kernel out/"$kerneltype" --ramdisk out/ramdisk.gz --cmdline "$cmdline" --base $base --pagesize $ps --ramdisk_offset $ramdisk_offset --tags_offset $tags_offset --output ozip/boot.img
+	mkbootimg --kernel out/"$kerneltype" --ramdisk out/ramdisk.lz4 --cmdline "$cmdline" --base $base --pagesize $ps --ramdisk_offset $ramdisk_offset --tags_offset $tags_offset --output ozip/boot.img
 else
 	echo "No $kerneltype found..."
 	exit 0;
