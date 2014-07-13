@@ -53,14 +53,6 @@ else
 	echo "[furnace] D:" | tee /dev/kmsg
 fi
 
-# Enable powersuspend
-if [ -e /sys/kernel/power_suspend/power_suspend_mode ]; then
-	echo "1" > /sys/kernel/power_suspend/power_suspend_mode
-	echo "[furnace] Powersuspend enabled" | tee /dev/kmsg
-else
-	echo "[furnace] Failed to set powersuspend" | tee /dev/kmsg
-fi
-
 # Set RGB KCAL
 if [ -e /sys/devices/platform/kcal_ctrl.0/kcal ]; then
 	sd_r=255
