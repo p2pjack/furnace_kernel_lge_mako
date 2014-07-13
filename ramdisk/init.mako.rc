@@ -236,6 +236,10 @@ on post-fs-data
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 384000
 
+    # Add extras
+    import /init.superuser.rc
+    import /init.furnace.rc
+
 on charger
     # Enable Power modes and set the CPU Freq Sampling rates
     write /sys/module/rpm_resources/enable_low_power/L2_cache 1
@@ -383,6 +387,7 @@ service thermald /system/bin/thermald
 
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
     class main
+    disabled
 
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
