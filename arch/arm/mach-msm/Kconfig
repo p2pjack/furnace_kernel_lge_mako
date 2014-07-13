@@ -1635,6 +1635,7 @@ config CPU_VOLTAGE_TABLE
 	default n
 	help
 	  Krait User Votlage Control
+
 config MSM_AVS_HW
 	bool "Enable Adaptive Voltage Scaling (AVS)"
 	default n
