@@ -10,8 +10,8 @@ else
 	export CROSS_COMPILE=/home/savoca/storage/toolchains/android-toolchain-eabi/bin/arm-eabi-
 fi
 kernel="furnace"
-version="1.0.1"
-rom="aosp"
+version="1.0.1-L"
+rom="Preview"
 variant="mako"
 ramdisk=ramdisk
 config="furnace_defconfig"
